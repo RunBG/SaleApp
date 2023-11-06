@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import dao
-app = Flask(__name__)
+from saleapps.appsales import app
+
 
 @app.route("/")
 def index():
@@ -9,5 +10,5 @@ def index():
     prods = dao.get_products()
     return render_template('index.html', categories=cates, products=prods)
 
-if __name__== '__main__':
+if __name__ == '__main__':
     app.run(debug=True)
